@@ -161,3 +161,8 @@ input {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
+.footer {
+    color: silver;
+    text-align: center;
+    margin-top: 5rem;
+}

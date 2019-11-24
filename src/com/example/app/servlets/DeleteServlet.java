@@ -28,16 +28,17 @@ public class DeleteServlet extends HttpServlet {
         super();
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
     @SuppressWarnings("unchecked")
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletContext application = this.getServletContext();
+        // get the id of the user we want to delete
         Integer id = Integer.parseInt(request.getParameter("id"));
         Map<Integer, User> users = new HashMap<Integer, User>();
+        // get the user list
         users.putAll((Map<? extends Integer, ? extends User>) application.getAttribute("USERS"));
+        // the remove the specific user
         users.remove(id);
+        // redirect to the home page
         application.setAttribute("USERS", users);
         response.sendRedirect("/TP_JEE/home");
     }

@@ -51,6 +51,7 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("login", login);
         RequestDispatcher rd;
+        // if the username is null or blank, stay on the login page
         if(login != null && !"".equals(login.trim())) {
             rd = this.getServletContext().getNamedDispatcher("JspHome");
             response.sendRedirect("home");

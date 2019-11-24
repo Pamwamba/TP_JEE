@@ -43,18 +43,17 @@
             </ul>
         </div>
     </nav>
+
     <div class="content">
+    <div class="success-event">
+
+    </div>
         <table id="myTable" class="ui celled table" style="width:100%">
         <thead>
             <tr>
                 <th>Select</th>
-                <th>Photo</th>
+                <th>Avatar</th>
                 <th>Username</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Email</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -73,12 +72,7 @@
                     </div>
                 </td>
                 <td><img class="avatar" src=<%=u.getValue().getPhoto()%> /></td>
-                <td><%=u.getValue().getUsername()%> <%=u.getValue().getId()%></td>
-                <td><%=u.getValue().getFirstname()%></td>
-                <td><%=u.getValue().getLastname()%></td>
-                <td><%=u.getValue().getAddress()%></td>
-                <td><%=u.getValue().getPhone()%></td>
-                <td><%=u.getValue().getEmail()%></td>
+                <td><%=u.getValue().getUsername()%></td>
                 <td style="display:flex;">
                     <form action=/TP_JEE/show/<%=u.getValue().getId()%> method="POST">
                         <input type="hidden" name="id" value=<%=u.getValue().getId()%>>
@@ -115,13 +109,8 @@
         <tfoot>
             <tr>
                 <th>Select</th>
-                <th>Photo</th>
+                <th>Avatar</th>
                 <th>Username</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Email</th>
                 <th>Action</th>
             </tr>
         </tfoot>
@@ -140,5 +129,8 @@
         $('#myTable').DataTable();
     } );
     </script>
+    <div class="footer">
+        Samy Moussaoui - TP JEE - Using Bootstrap, DataTables and JQuery
+    </div>
 </body>
 </html>

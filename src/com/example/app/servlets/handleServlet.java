@@ -17,6 +17,11 @@ import com.example.app.entities.User;
 /**
  * Servlet implementation class handleServlet
  */
+/**
+ * @author Samy
+ * This servlet is used for creating and updating an user
+ *
+ */
 @WebServlet("/handle/*")
 public class handleServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -26,28 +31,23 @@ public class handleServlet extends HttpServlet {
      */
     public handleServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Redirect to home page
-        response.sendRedirect("home");
+        response.sendRedirect("/TP_JEE/home");
 
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
     @SuppressWarnings("unchecked")
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<Integer, User> users = new HashMap<Integer, User>();
         ServletContext application = this.getServletContext();
         RequestDispatcher rd;
+        // get the id of the user (created or not)
         Integer key = Integer.parseInt(request.getParameter("id"));
-        // get the userlist
+
+        // get the user list
         users.putAll((Map<? extends Integer, ? extends User>) application.getAttribute("USERS"));
 
         User u = new User();
@@ -59,6 +59,7 @@ public class handleServlet extends HttpServlet {
         u.setAddress(request.getParameter("address").toString());
         u.setPhone(request.getParameter("phone").toString());
         u.setEmail(request.getParameter("mail").toString());
+        // set a default avatar if the field is blank
         if (request.getParameter("avatar") == "" ) {
             u.setPhoto("/TP_JEE/img/default.jpg");
         } else {
@@ -68,13 +69,17 @@ public class handleServlet extends HttpServlet {
         if (users.containsKey(key)) {
             // replace the user in the HashMap
             users.replace(key , u);
+            application.setAttribute("USERS", users);
+            rd = this.getServletContext().getNamedDispatcher("JspHome");
+            response.sendRedirect("/TP_JEE/home");
         } else {
-            // create the user
+            // else, create the user then go to the profile
             users.put(key, u);
+            application.setAttribute("USERS", users);
+            rd = this.getServletContext().getNamedDispatcher("JspShow");
+            response.sendRedirect("/TP_JEE/show/" + key);
         }
-        application.setAttribute("USERS", users);
-        rd = this.getServletContext().getNamedDispatcher("JspHome");
-        response.sendRedirect("/TP_JEE/home");
+
     }
 
 }

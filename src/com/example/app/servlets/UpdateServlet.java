@@ -54,7 +54,6 @@ public class UpdateServlet extends HttpServlet {
      */
     @SuppressWarnings("unchecked")
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
         Map<Integer, User> users = new HashMap<Integer, User>();
         ServletContext application = this.getServletContext();
         users.putAll((Map<? extends Integer, ? extends User>) application.getAttribute("USERS"));
