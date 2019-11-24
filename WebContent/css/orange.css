@@ -16,6 +16,7 @@
     margin-top: 100px;
     margin-right: 8rem;
     margin-left: 8rem;
+    display:flex;
 }
 .content-sm {
     margin-top: 100px;
@@ -24,6 +25,22 @@
     box-shadow: 0 0 5px #aaa;
     padding: 4rem 3rem;
     border-radius: 10px;
+}
+.left-side {
+    float: left;
+    margin: 5px;
+    width:100%;
+    box-shadow: 0 0 5px #aaa;
+    padding: 4rem 3rem;
+    border-radius: 10px;
+}
+.right-side {
+    float: right;
+    margin: 5px;
+    box-shadow: 0 0 5px #aaa;
+    padding: 4rem 3rem;
+    border-radius: 10px;
+    width:100%;
 }
 .avatar {
     width: 56px !important;

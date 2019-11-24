@@ -37,39 +37,45 @@
             </ul>
         </div>
     </nav>
-    <div class="content-sm">
-        <form action=/TP_JEE/handle/<%=u.getId()%> method="POST">
-            <div class="form-group">
-                <label class="oleo-label" for="username">Username</label>
-                <input class="form-control rounded-input" type="text" name="username" placeholder="Username" value="<%=u.getUsername() %>">
-            </div>
-            <div class="form-group">
-                <label class="oleo-label" for="firstname">Firstname</label>
-                <input class="form-control rounded-input" type="text" name="firstname" placeholder="firstname" value="<%=u.getFirstname() %>">
-            </div>
-            <div class="form-group">
-                <label class="oleo-label" for="lastname">Lastname</label>
-                <input class="form-control rounded-input" type="text" name="lastname" placeholder="lastname" value="<%=u.getLastname() %>">
-            </div>
-            <div class="form-group">
-                <label class="oleo-label" for="address">Address</label>
-                <input class="form-control rounded-input" type="text" name="address" placeholder="address" value="<%=u.getAddress() %>">
-            </div>
-            <div class="form-group">
-                <label class="oleo-label" for="phone">Phone</label>
-                <input class="form-control rounded-input" type="text" name="phone" placeholder="phone" value="<%=u.getPhone() %>">
-            </div>
-            <div class="form-group">
-                <label class="oleo-label" for="mail">Mail address</label>
-                <input class="form-control rounded-input" type="text" name="mail" placeholder="mail" value="<%=u.getEmail() %>">
-            </div>
-            <div class="form-group">
-                <label class="oleo-label" for="mail">Avatar (URL)</label>
-                <input class="form-control rounded-input" type="text" name="avatar" placeholder="avatar" value=<%=u.getPhoto() %>>
-            </div>
-            <input type="hidden" name="id" value=<%=u.getId()%>>
-            <input type="submit" class="btn btn-gradient full-width" alt="update" value="Confirm">
-         </form>
+    <div class="content">
+        <div class="left-side">
+            <form action=/TP_JEE/handle/<%=u.getId()%> method="POST">
+                <div class="form-group">
+                    <label class="oleo-label" for="username">Username</label>
+                    <input class="form-control rounded-input" type="text" name="username" placeholder="Username" value="<%=u.getUsername() %>">
+                </div>
+                <div class="form-group">
+                    <label class="oleo-label" for="firstname">Firstname</label>
+                    <input class="form-control rounded-input" type="text" name="firstname" placeholder="firstname" value="<%=u.getFirstname() %>">
+                </div>
+                <div class="form-group">
+                    <label class="oleo-label" for="lastname">Lastname</label>
+                    <input class="form-control rounded-input" type="text" name="lastname" placeholder="lastname" value="<%=u.getLastname() %>">
+                </div>
+                <div class="form-group">
+                    <label class="oleo-label" for="address">Address</label>
+                    <input class="form-control rounded-input" type="text" name="address" placeholder="address" value="<%=u.getAddress() %>">
+                </div>
+                <div class="form-group">
+                    <label class="oleo-label" for="phone">Phone</label>
+                    <input class="form-control rounded-input" type="text" name="phone" placeholder="phone" value="<%=u.getPhone() %>">
+                </div>
+                <div class="form-group">
+                    <label class="oleo-label" for="mail">Mail address</label>
+                    <input class="form-control rounded-input" type="text" name="mail" placeholder="mail" value="<%=u.getEmail() %>">
+                </div>
+                <div class="form-group">
+                    <label class="oleo-label" for="mail">Avatar (URL)</label>
+                    <input class="form-control rounded-input" type="text" name="avatar" placeholder="avatar" value=<%=u.getPhoto() %>>
+                </div>
+                <input type="hidden" name="id" value=<%=u.getId()%>>
+                <input type="submit" class="btn btn-gradient full-width" alt="update" value="Confirm">
+            </form>
+        </div>
+        <div class="right-side">
+
+        </div>
+
     </div>
 
 </body>
