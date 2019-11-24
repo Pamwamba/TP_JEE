@@ -34,6 +34,7 @@ public class HomeServlet extends HttpServlet {
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
+    @SuppressWarnings("unchecked")
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // get the session and get the login variable
@@ -41,8 +42,15 @@ public class HomeServlet extends HttpServlet {
         String login = (String) session.getAttribute("login");
         ServletContext application = this.getServletContext();
         RequestDispatcher rd;
-        users.putAll(initUsers());
-        application.setAttribute("USERS", users);
+
+        if(application.getAttribute("USERS") != null) {
+            users.putAll((Map<? extends Integer, ? extends User>) application.getAttribute("USERS"));
+        }
+//        users.putAll(initUsers());
+
+        if(users.isEmpty()) {
+            application.setAttribute("USERS", users);
+        }
         // if login is not null, display home page, else, display login form
         if(login != null && !"".equals(login.trim())) {
             rd = this.getServletContext().getNamedDispatcher("JspHome");

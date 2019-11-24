@@ -25,6 +25,18 @@
     padding: 4rem 3rem;
     border-radius: 10px;
 }
+.avatar {
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 56px !important;
+    margin-left: calc(50% - 28px);
+}
+.profile-avatar {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 100px !important;
+    margin-left: calc(50% - 50px);
+}
 /* inputs */
 input {
     border-style: none;
@@ -89,6 +101,20 @@ input {
     margin-top: 10px;
     width: 100%;
     padding: 10px;
+}
+.create-btn {
+    bottom: 45px;
+    right: 24px;
+    position: fixed;
+    padding:40px;
+}
+.btn-round {
+    padding: 1px 20px !important;
+    border-radius: 50px !important;
+    font-size: 40px;
+    box-shadow: #aaa 0px 0px 10px;
+
+
 }
 .full-width {
     margin-top:0.8rem;

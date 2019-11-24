@@ -11,21 +11,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.example.app.entities.User;
 
 /**
- * Servlet implementation class UpdateServlet
+ * Servlet implementation class handleServlet
  */
-@WebServlet("/update/*")
-public class UpdateServlet extends HttpServlet {
+@WebServlet("/handle/*")
+public class handleServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private Map<Integer, User> users = new HashMap<Integer, User>();
+
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateServlet() {
+    public handleServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,19 +34,9 @@ public class UpdateServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        String login = (String) session.getAttribute("login");
-        RequestDispatcher rd;
-        // if login is not null, display home page, else, display login form
-        if(login != null && !"".equals(login.trim())) {
-            rd = this.getServletContext().getNamedDispatcher("JspUpdate");
+        // Redirect to home page
+        response.sendRedirect("home");
 
-        } else {
-            rd = this.getServletContext().getNamedDispatcher("JspLogin");
-            request.setAttribute("ERROR", "Not connected !");
-        }
-
-        rd.forward(request, response);
     }
 
     /**
@@ -54,15 +44,33 @@ public class UpdateServlet extends HttpServlet {
      */
     @SuppressWarnings("unchecked")
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Map<Integer, User> users = new HashMap<Integer, User>();
         ServletContext application = this.getServletContext();
+        RequestDispatcher rd;
+        Integer key = Integer.parseInt(request.getParameter("id"));
+        // get the userlist
         users.putAll((Map<? extends Integer, ? extends User>) application.getAttribute("USERS"));
 
-        Integer oneUser = Integer.parseInt(request.getParameter("id"));
-
-        application.setAttribute("oneUser", (User) users.get(oneUser));
-        doGet(request, response);
+        User u = new User();
+        // set all informations
+        u.setId(key);
+        u.setUsername(request.getParameter("username").toString());
+        u.setFirstname(request.getParameter("firstname").toString());
+        u.setLastname(request.getParameter("lastname").toString());
+        u.setAddress(request.getParameter("address").toString());
+        u.setPhone(request.getParameter("phone").toString());
+        u.setEmail(request.getParameter("mail").toString());
+        u.setPhoto(request.getParameter("avatar").toString());
+        // if the key exists, it means that this is an update
+        if (users.containsKey(key)) {
+            // replace the user in the HashMap
+            users.replace(key , u);
+        } else {
+            // create the user
+            users.put(key, u);
+        }
+        application.setAttribute("USERS", users);
+        rd = this.getServletContext().getNamedDispatcher("JspHome");
+        response.sendRedirect("/TP_JEE/home");
     }
 
 }

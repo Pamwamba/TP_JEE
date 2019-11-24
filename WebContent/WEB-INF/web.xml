@@ -41,4 +41,12 @@
         <servlet-name>JspUpdate</servlet-name>
         <jsp-file>/META-INF/jsps/JspUpdate.jsp</jsp-file>
     </servlet>
+        <servlet>
+        <servlet-name>createServlet</servlet-name>
+        <servlet-class>com.example.app.servlets.CreateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>JspCreate</servlet-name>
+        <jsp-file>/META-INF/jsps/JspCreate.jsp</jsp-file>
+    </servlet>
 </web-app>

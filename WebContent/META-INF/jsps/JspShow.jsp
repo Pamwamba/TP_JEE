@@ -38,6 +38,7 @@
         </div>
     </nav>
     <div class="content-sm">
+    <img class="profile-avatar" src="<%=u.getPhoto() %>"/>
         <div class="form-group">
             <label class="oleo-label" for="username">Username</label>
             <input class="form-control rounded-input" type="text" name="username" placeholder="Username" value="<%=u.getUsername() %>" disabled>

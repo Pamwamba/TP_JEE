@@ -49,6 +49,7 @@ public class ShowServlet extends HttpServlet {
         // if login is not null, display home page, else, display login form
         if(login != null && !"".equals(login.trim())) {
             rd = this.getServletContext().getNamedDispatcher("JspShow");
+//            rd = this.getServletContext().getRequestDispatcher("/show/");
 
         } else {
             rd = this.getServletContext().getNamedDispatcher("JspLogin");
