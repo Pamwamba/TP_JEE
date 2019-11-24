@@ -65,7 +65,7 @@
             </div>
             <div class="form-group">
                 <label class="oleo-label" for="mail">Avatar (URL)</label>
-                <input class="form-control rounded-input" type="text" name="avatar" placeholder="avatar" value="">
+                <input class="form-control rounded-input" type="text" name="avatar" placeholder="avatar" value="/TP_JEE/img/default.jpg">
             </div>
             <input type="hidden" name="id" value=<%=id %>>
             <input type="submit" class="btn btn-gradient full-width" alt="update" value="Confirm">

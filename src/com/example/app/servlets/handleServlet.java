@@ -20,7 +20,6 @@ import com.example.app.entities.User;
 @WebServlet("/handle/*")
 public class handleServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private Map<Integer, User> users = new HashMap<Integer, User>();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -44,6 +43,7 @@ public class handleServlet extends HttpServlet {
      */
     @SuppressWarnings("unchecked")
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Map<Integer, User> users = new HashMap<Integer, User>();
         ServletContext application = this.getServletContext();
         RequestDispatcher rd;
         Integer key = Integer.parseInt(request.getParameter("id"));
@@ -59,7 +59,11 @@ public class handleServlet extends HttpServlet {
         u.setAddress(request.getParameter("address").toString());
         u.setPhone(request.getParameter("phone").toString());
         u.setEmail(request.getParameter("mail").toString());
-        u.setPhoto(request.getParameter("avatar").toString());
+        if (request.getParameter("avatar") == "" ) {
+            u.setPhoto("/TP_JEE/img/default.jpg");
+        } else {
+            u.setPhoto(request.getParameter("avatar").toString());
+        }
         // if the key exists, it means that this is an update
         if (users.containsKey(key)) {
             // replace the user in the HashMap
