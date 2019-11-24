@@ -22,46 +22,32 @@ import com.example.app.entities.User;
 @Path("/user")
 public class UserController {
 
-    private static final String CONTEXT = "users";
+    private static final String CONTEXT = "USERS";
 
     private final ServletContext servletContext;
 
     private final Map<Integer, User> users;
 
-    /**
-     * Constructor of User controller.
-     * @param servletContext Injected Servlet Context.
-     */
     @SuppressWarnings("unchecked")
     public UserController(@Context final ServletContext servletContext) {
-        // Store injected ServletContext.
+
         this.servletContext = servletContext;
 
-        // Check if Map of Users exist, if not create it.
         if (this.servletContext.getAttribute(CONTEXT) == null) {
             this.servletContext.setAttribute(CONTEXT, new HashMap<Integer, User>());
         }
 
-        // Store context of users.
         this.users = (Map<Integer, User>) this.servletContext.getAttribute(CONTEXT);
     }
 
-    /**
-     * Retrieve the collection resource of User in the response body.
-     * @return Collection of User.
-     */
     @GET
     public Response getAll() {
+
         final Collection<User> result = users.values();
 
         return Response.ok(result).build();
     }
 
-    /**
-     * Retrieve a User resource in the response body.
-     * @param id Identifier of User.
-     * @return User data.
-     */
     @GET
     @Path("/{id}")
     public Response getOne(@PathParam("id") final Integer id) {
@@ -77,18 +63,10 @@ public class UserController {
         return result;
     }
 
-    /**
-     * Create a User. The URI of the created member resource is automatically assigned and returned in the response
-     * Location header field.
-     * @param id Identifier of User.
-     * @param user User data to store.
-     * @return User data updated.
-     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/{id}")
     public Response create(@PathParam("id") final Integer id, final User user) {
-        System.out.println("User" + user.displayName());
 
         if (user.getId() == 0) {
             user.setId(++User.sequence);
@@ -99,12 +77,6 @@ public class UserController {
         return Response.ok(user).build();
     }
 
-    /**
-     * Create a collection of Users. The URI of the created member resource is automatically assigned and returned in the response
-     * Location header field.
-     * @param usersParam Collection of Users
-     * @return Users data updated.
-     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response create(final List<User> usersParam) {
@@ -120,12 +92,6 @@ public class UserController {
         return Response.ok(usersParam).build();
     }
 
-    /**
-     * Update User or create it if not exist.
-     * @param id Identifier of User.
-     * @param user User data.
-     * @return User data updated.
-     */
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -135,11 +101,6 @@ public class UserController {
         return Response.ok(user).build();
     }
 
-    /**
-     * Delete all the representations of User.
-     * @param id Identifier of User.
-     * @return nothing.
-     */
     @DELETE
     @Path("/{id}")
     public Response delete(@PathParam("id") final Integer id) {

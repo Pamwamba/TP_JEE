@@ -43,19 +43,17 @@
             </ul>
         </div>
     </nav>
-    <div class="content">
 
+    <div class="content">
+    <div class="success-event">
+
+    </div>
         <table id="myTable" class="ui celled table" style="width:100%">
         <thead>
             <tr>
                 <th>Select</th>
-                <th>Photo</th>
+                <th>Avatar</th>
                 <th>Username</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Email</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -65,7 +63,7 @@
         %>
         <%
         for(Map.Entry<Integer, User> u : userlist.entrySet()) {
-            idCounter++;
+
             %>
             <tr>
                 <td>
@@ -75,31 +73,44 @@
                 </td>
                 <td><img class="avatar" src=<%=u.getValue().getPhoto()%> /></td>
                 <td><%=u.getValue().getUsername()%></td>
-                <td><%=u.getValue().getFirstname()%></td>
-                <td><%=u.getValue().getLastname()%></td>
-                <td><%=u.getValue().getAddress()%></td>
-                <td><%=u.getValue().getPhone()%></td>
-                <td><%=u.getValue().getEmail()%></td>
-                <td>
+                <td style="display:flex;">
                     <form action=/TP_JEE/show/<%=u.getValue().getId()%> method="POST">
                         <input type="hidden" name="id" value=<%=u.getValue().getId()%>>
                         <input type="submit" class="btn btn-gradient" alt="Show" value="Show">
-                     </form>
+                    </form>
+                    <button class="btn btn-gradient btn-delete" data-toggle="modal" data-target="#confirm<%=idCounter %>" style="margin-left: 12px">Delete</button>
                 </td>
             </tr>
-            <%
-        } idCounter++;%>
+            <div class="modal fade" id="confirm<%=idCounter %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Are you sure you want to delete this user ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <form action=/TP_JEE/delete/<%=u.getValue().getId()%> method="POST">
+                        <input type="hidden" name="id" value=<%=u.getValue().getId()%>>
+                        <input class="btn btn-danger" type="submit" value="Confirm"/>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%idCounter = u.getValue().getId() + 1;
+        } %>
         </tbody>
         <tfoot>
             <tr>
                 <th>Select</th>
-                <th>Photo</th>
+                <th>Avatar</th>
                 <th>Username</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Email</th>
                 <th>Action</th>
             </tr>
         </tfoot>
@@ -118,5 +129,8 @@
         $('#myTable').DataTable();
     } );
     </script>
+    <div class="footer">
+        Samy Moussaoui - TP JEE - Using Bootstrap, DataTables and JQuery
+    </div>
 </body>
 </html>

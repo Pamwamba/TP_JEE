@@ -22,27 +22,22 @@ import com.example.app.entities.User;
 public class ShowServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private Map<Integer, User> users = new HashMap<Integer, User>();
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public ShowServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
     @SuppressWarnings({ "unchecked" })
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // get the session and get the login variable
         HttpSession session = request.getSession();
         String login = (String) session.getAttribute("login");
-
         ServletContext application = this.getServletContext();
         users.putAll((Map<? extends Integer, ? extends User>) application.getAttribute("USERS"));
 
-        Integer oneUser = Integer.parseInt(request.getParameter("id"));
+        // get the id using the path info, by splitting it
+        String[] path = request.getPathInfo().split("/");
+        Integer oneUser = Integer.parseInt(path[path.length-1]);
 
         application.setAttribute("oneUser", (User) users.get(oneUser));
         RequestDispatcher rd;
