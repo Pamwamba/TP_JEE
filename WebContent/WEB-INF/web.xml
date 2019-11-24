@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+    <display-name>JavaEETP</display-name>
+        <servlet>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>com.example.app.servlets.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>JspLogin</servlet-name>
+        <jsp-file>/META-INF/jsps/JspLogin.jsp</jsp-file>
+    </servlet>
+    <servlet>
+    <servlet-name>homeServlet</servlet-name>
+        <servlet-class>com.example.app.servlets.HomeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>JspHome</servlet-name>
+        <jsp-file>/META-INF/jsps/JspHome.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>logoutServlet</servlet-name>
+        <servlet-class>com.example.app.servlets.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>JspLogout</servlet-name>
+        <jsp-file>/META-INF/jsps/JspLogout.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>showServlet</servlet-name>
+        <servlet-class>com.example.app.servlets.ShowServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>JspShow</servlet-name>
+        <jsp-file>/META-INF/jsps/JspShow.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>updateServlet</servlet-name>
+        <servlet-class>com.example.app.servlets.UpdateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>JspUpdate</servlet-name>
+        <jsp-file>/META-INF/jsps/JspUpdate.jsp</jsp-file>
+    </servlet>
+</web-app>

@@ -1,0 +1,93 @@
+
+@font-face {
+    font-family: "OleoScript";
+    src: url("../fonts/OleoScript.ttf");
+  }
+  @font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-Medium.otf");
+  }
+  @font-face {
+    font-family: "Montserrat-Italic";
+    src: url("../fonts/Montserrat-MediumItalic.otf");
+  }
+  @font-face {
+    font-family: "Scada-Italic";
+    src: url("../fonts/Scada-Italic.ttf");
+  }
+  @font-face {
+    font-family: "Scada-Regular";
+    src: url("../fonts/Scada-Regular.ttf");
+  }
+  @font-face {
+    font-family: "Numans";
+    src: url("../fonts/Numans-Regular.otf");
+  }
+
+* {
+    font-family: Numans;
+}
+.home {
+    position: float;
+    width:100%;
+    height:100%;
+}
+/* fix div to left side */
+.left-side{
+    float:left;
+    width:40%;
+    height:100%;
+    /*
+    background-image: url('../img/home.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    */
+}
+/* fix div to right side */
+.right-side {
+    float: right;
+    width:60%;
+    height:100%;    
+}
+.brand-logo {
+      margin: 10% auto;
+      display: block;
+      width: 30%;
+}
+/* inputs */
+.rounded-input {
+    border-radius: 20px;
+    border-color: #673ab7;
+    
+}
+.rounded-input::placeholder {
+    font-family: Scada-Italic;
+}
+.rounded-input:focus {
+    outline: none;
+    border-color: #673ab7;
+    box-shadow: 0 0 5px #673ab7;
+}
+/* sign in form */
+.sign-in {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 65px;
+}
+/* buttons */
+.btn-gradient {
+    color: #fafafa;
+    font-family: Scada-Italic;
+    border:none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #673ab7, #00bcd4);
+}
+.btn-gradient:focus {
+    background-color: #673ab7;
+}
+/* fonts */
+.oleo-label {
+    font-family: OleoScript;
+    color: #673ab7;
+}

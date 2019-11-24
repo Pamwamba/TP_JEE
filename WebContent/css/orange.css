@@ -1,0 +1,134 @@
+
+* {
+    font-family: Helvetica, Arial;
+}
+.home {
+    position: float;
+    width:100%;
+    height:100%;
+}
+.brand-logo {
+      margin: 2rem auto;
+      display: block;
+      width: 18rem;
+}
+.content {
+    margin-top: 100px;
+    margin-right: 8rem;
+    margin-left: 8rem;
+}
+.content-sm {
+    margin-top: 100px;
+    margin-right: 20rem;
+    margin-left: 20rem;
+    box-shadow: 0 0 5px #aaa;
+    padding: 4rem 3rem;
+    border-radius: 10px;
+}
+/* inputs */
+input {
+    border-style: none;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #aaa;
+}
+.rounded-input {
+    border-style: none;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #aaa;
+
+}
+.rounded-input:focus {
+    outline: none;
+}
+.date-input {
+    width: 115px !important;
+}
+.input-group {
+  display: inline;
+}
+.search-input-group {
+    width: auto !important;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #aaa;
+    border-style: none;
+    margin-left: 10px;
+}
+
+/* sign in form */
+.sign-in {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 65px;
+    border-radius: 5px;
+    padding: 50px;
+    box-shadow: #aaa 0px 0px 10px;
+}
+
+#myTable {
+    box-shadow: #aaa 0px 0px 10px;
+    border-radius: 10px;
+}
+/* buttons */
+.btn-gradient {
+    color: #fafafa !important;
+    border:none !important;
+    border-radius: 10px !important;
+    background: linear-gradient(135deg, #FF9800, #ff2d3b) !important;
+}
+
+.btn-gradient:focus {
+    background-color: #FF9800;
+}
+.btn-search {
+    height: 26px;
+    margin: 5px;
+    width: 40px;
+    float: right;
+}
+.btn-sub {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+}
+.full-width {
+    margin-top:0.8rem;
+    width: 100%;
+    padding: 1rem;
+}
+/* nav menu */
+.menu-right-align {
+    float: right !important;
+}
+.nav-item {
+    float: left;
+    margin: 5px;
+
+}
+.vertical-separator {
+  border-left: 1px solid #aaa;
+  display: inline;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* Cards */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: 10px auto;
+  position: relative;
+  text-align:center;
+}
+.card {
+  display: inline-block !important;
+  border-style: none !important;
+  border-radius: 20px !important;
+  box-shadow: 0 0 5px #aaa;
+  margin: 20px auto;
+  width:250px !important;
+}
+.card-img-top {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
